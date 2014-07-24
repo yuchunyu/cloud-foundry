@@ -50,6 +50,11 @@
 	</body>
 	<script type="text/javascript">
 	$(function(){
+		//当帐户为这个时候 允许登陆
+		var tempUser = {
+			email : 'yuchunyu@goyoo.com',
+			password : '111111'
+		};
 		$('#login').click(function(){
 			var sEmail = $('#email').val();
 			var sPassword = $('#password').val();
@@ -59,21 +64,19 @@
 			if(!checkLogin(sPassword,'password')){
 				return;
 			}
+			if(tempUser.email != sEmail || tempUser.password != sPassword){
+				alert('对不起，帐户密码不正确。');
+				return;
+			}
 			//判断是否允许进入
 			$.ajax({
-                type: 'post',
-                data: {
-                	email: sEmail,
-                	password : sPassword
-                },
-                url: '/login',
-                dataType: 'json',
+                type: 'get',
+                url: '/index',
                 success: function (result){
-                    if (result.status != '0'){
-                        alert(result.msg);
-                    }
+              		location.href = '/index';
                 }
             })
+			
 		});
 		//校验
 		function checkLogin(data,type){

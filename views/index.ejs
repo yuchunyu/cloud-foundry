@@ -5,6 +5,7 @@
 	}
 	.table th,.table td{text-align: center;}
 	.fr{text-align: right;padding-bottom: 10px;}
+	#createApp{margin-right: 15px;}
 	#createApp label{line-height: 34px;}
 	#createApp .row{margin-top: 5px;}
 </style>
@@ -34,7 +35,7 @@
 		            	<td>blog.coolfishstudio.com</td>
 		            	<td>博客系统</td>
 		            	<td>启动</td>
-		            	<td>管理</td>
+		            	<td><a href="/manage">管理</a></td>
 		          	</tr>
 		          	<tr>
 			            <td>D100002</td>
@@ -42,7 +43,7 @@
 			            <td>lbs.coolfishstudio.com</td>
 			            <td>LBS管理系统</td>
 			            <td>启动</td>
-			            <td>管理</td>
+			            <td><a href="/manage">管理</a></td>
 		          	</tr>
 		          	<tr>
 			            <td>D100003</td>
@@ -50,7 +51,7 @@
 			            <td>music.coolfishstudio.com</td>
 			            <td>音乐管理系统</td>
 			            <td>停止</td>
-			            <td>管理</td>
+			            <td><a href="/manage">管理</a></td>
 		          	</tr>
 		        </tbody>
 		    </table>
@@ -106,17 +107,16 @@
 	      	<div class="row">
 	      		<label class="col-sm-2 control-label text-right">展示图</label>
 			    <div class="col-sm-10">
-			      <input type="text" class="form-control"  placeholder="image">
+			      <input type="file" class="form-control">
 			    </div>
 	      	</div>
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-	        <button type="button" class="btn btn-primary">创建</button>
+	        <button type="button" class="btn btn-primary">修改</button>
 	      </div>
 	    </div>
 	  </div>
 	</div>
-
   </body>
 </html>
