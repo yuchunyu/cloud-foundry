@@ -1,0 +1,147 @@
+<% include header %>
+<style type="text/css">
+	@-moz-document url-prefix() {
+	  fieldset { display: table-cell; }
+	}
+	.fr{text-align: right;padding-bottom: 10px;}
+	.dl-horizontal dt{width:80px;}
+	.dl-horizontal dd{margin-left: 100px;}
+	.panelLog{background: #000; margin-top: 15px;color:#0c3;}
+
+	.panelRunTime{height:98px;background: #e5412d;}
+	.panelVisitors{height:98px;background: #f0ad4e;}
+	.panelColophon{height:98px;background: #339933;}
+	.panelRunTime i{color: #d42e1a;}
+	.panelVisitors i{color: #ea9b2b;}
+	.panelColophon i{color: #006633;}
+	
+	.bgico{position: absolute;right: 5px;bottom: 0;}
+	.bgico i{text-shadow: none;font-size: 80px;}
+	.data{padding-left: 5px;position: relative;top: 30px;z-index: 1;}
+	.panelRunTime,.panelVisitors,.panelColophon {position: relative;color: #fff;text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);font-weight: bold;font-size: 16px;}
+	.panelRunTime h3,.panelVisitors h3,.panelColophon h3{font-size: 13px;position: absolute;top: 0;left: 10px;letter-spacing: 1px;}
+
+</style>
+<body>
+  	<% include navbar %>
+    <div class="container">
+    	<div class="fr">
+    		<button type="button" class="btn btn-success">停止应用</button>
+    		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updatePanel">修改应用</button>
+    		<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delPanel">删除应用</button>
+    	</div>
+    	<div class="row">
+			<div class="col-md-4">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+				    	<h3 class="panel-title">应用信息</h3>
+				  	</div>
+				  	<div class="panel-body">
+				    	<dl class="dl-horizontal">
+							<dt>应用名称:</dt>
+							<dd>NodeBlog</dd>
+							<dt>运行状态:</dt>
+							<dd>启动中</dd>
+							<dt>二级域名:</dt>
+							<dd>blog.coolfishstudio.com</dd>
+							<dt>创建时间:</dt>
+							<dd>2014-07-23</dd>
+							<dt>版本号:</dt>
+							<dd>20140723222545</dd>
+					    </dl>
+				  	</div>
+				</div>
+			</div>
+			<div class="col-md-8">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+				    	<h3 class="panel-title">数据统计</h3>
+				  	</div>
+				  	<div class="panel-body">
+				  		<div class="col-md-4">
+				  			<div class="panel panel-default">
+							  	<div class="panel-body panelRunTime">
+			                        <h3>运行时间</h3>
+			                        <div class="bgico">
+			                            <i class="icon-coffee"></i>
+			                        </div>
+			                        <div class="data">
+			                            <p>总时间:<span>355</span>天
+			                            </p>
+			                        </div>
+							  	</div>
+							</div>
+				  		</div>
+				  		<div class="col-md-4">
+				  			<div class="panel panel-default">
+							  	<div class="panel-body panelVisitors">
+							  		<h3>访问人数</h3>
+			                        <div class="bgico">
+			                            <i class="icon-coffee"></i>
+			                        </div>
+			                        <div class="data">
+			                            <p>总人数:<span>1355</span>人
+			                            </p>
+			                        </div>
+							  	</div>
+							</div>
+				  		</div>
+				  		<div class="col-md-4">
+				  			<div class="panel panel-default">
+							  	<div class="panel-body panelColophon">
+							  		<h3>版本记录</h3>
+			                        <div class="bgico">
+			                            <i class="icon-coffee"></i>
+			                        </div>
+			                        <div class="data">
+			                            <p>总记录:<span>6</span>条
+			                            </p>
+			                        </div>
+							  	</div>
+							</div>
+				  		</div>
+
+				  	</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="panel panel-success">
+			<div class="panel-heading">
+		    	<h3 class="panel-title">运行日志</h3>
+		  	</div>
+		  	<div class="panel-body">
+		    	<!-- 日志内容方式 -->
+		    	<div class="btn-group" data-toggle="buttons">
+				  	<label class="btn btn-success active">
+				    	<input type="radio" name="options" id="option1" checked> 所有日志
+				  	</label>
+				  	<label class="btn btn-success">
+				    	<input type="radio" name="options" id="option2"> 错误
+				  	</label>
+				  	<label class="btn btn-success">
+				    	<input type="radio" name="options" id="option3"> 警告
+				  	</label>
+				  	<label class="btn btn-success">
+				    	<input type="radio" name="options" id="option4"> 信息
+				  	</label>
+				  	<label class="btn btn-success">
+				    	<input type="radio" name="options" id="option5"> 调试
+				  	</label>
+				</div>
+				<div class="panel panel-default panelLog">
+					<div class="panel-body">
+				    	GET /transfer 304 3248.631 ms - - <br/>
+						GET /js/jquery.min.js 304 69.460 ms - - <br/>
+						GET /js/common.js 304 88.068 ms - - <br/>
+						GET /js/main.js 304 38.465 ms - - <br/>
+						GET /js/toastr.min.js 304 19.141 ms - - <br/>
+						GET /getID 304 58.163 ms - - <br/>
+				  	</div>
+				</div>
+
+		  	</div>
+		</div>
+    </div>
+  </body>
+</html>
