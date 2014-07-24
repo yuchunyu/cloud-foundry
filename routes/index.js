@@ -4,7 +4,7 @@ var pageUser = require('../lib/pageUser');
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Express' });
+  res.render('manage', { title: 'Express' });
 });
 
 router.post('/login', pageUser.login);
