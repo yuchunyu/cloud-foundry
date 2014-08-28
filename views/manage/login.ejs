@@ -1,0 +1,99 @@
+<% include header %>
+	<style type="text/css">
+	body {
+	  padding-top:120px;
+	  padding-bottom: 40px;
+	  background-color: #eee;
+	}
+
+	.form-signin {
+	  max-width: 330px;
+	  padding: 15px;
+	  margin: 0 auto;
+	}
+	.form-signin .form-signin-heading{
+	  margin-bottom: 10px;
+	}
+	.form-signin .form-control {
+	  position: relative;
+	  height: auto;
+	  -webkit-box-sizing: border-box;
+	     -moz-box-sizing: border-box;
+	          box-sizing: border-box;
+	  padding: 10px;
+	  font-size: 16px;
+	}
+	.form-signin .form-control:focus {
+	  z-index: 2;
+	}
+	.form-signin input[type="email"] {
+	  margin-bottom: -1px;
+	  border-bottom-right-radius: 0;
+	  border-bottom-left-radius: 0;
+	}
+	.form-signin input[type="password"] {
+	  margin-bottom: 10px;
+	  border-top-left-radius: 0;
+	  border-top-right-radius: 0;
+	}
+	</style>
+  	<body>
+	    <div class="container">
+	      <div class="form-signin">
+	        <h2 class="form-signin-heading">Please sign in</h2>
+	        <input type="email" class="form-control" placeholder="Email address" required="" autofocus="" id="email">
+	        <input type="password" class="form-control" placeholder="Password" required="" id="password">
+	        <br/>
+	        <button class="btn btn-lg btn-primary btn-block" type="submit" id="login">Sign in</button>
+	      </div>
+	    </div> 
+	</body>
+	<script type="text/javascript">
+	$(function(){
+		//当帐户为这个时候 允许登陆
+		var tempUser = {
+			email : 'yuchunyu@goyoo.com',
+			password : '111111'
+		};
+		$('#login').click(function(){
+			var sEmail = $('#email').val();
+			var sPassword = $('#password').val();
+			if(!checkLogin(sEmail,'email')){
+				return;
+			}
+			if(!checkLogin(sPassword,'password')){
+				return;
+			}
+			if(tempUser.email != sEmail || tempUser.password != sPassword){
+				alert('对不起，帐户密码不正确。');
+				return;
+			}
+			//判断是否允许进入
+			$.ajax({
+                type: 'get',
+                url: '/index',
+                success: function (result){
+              		location.href = '/index';
+                }
+            })
+			
+		});
+		//校验
+		function checkLogin(data,type){
+			if('' == data){
+				alert(type + '不能为空！');
+				return false;
+			}
+			// //对电子邮件的验证
+  			var emailreg = /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$/;
+			if('email' == type){
+				if(!emailreg.test(data)){
+				    alert('请输入有效的Email！');
+					return false;
+				}
+			}
+			return true;
+		}
+	})
+	</script>
+</html>

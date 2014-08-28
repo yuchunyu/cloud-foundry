@@ -1,0 +1,37 @@
+<div class="nav">
+	<ul>
+		<li class="current fl">
+			<a href="#"><i class="fa fa-paper-plane-o"></i>首页</a>
+		</li>
+		<li class="fl">
+			<a href="#">应用</a>
+		</li>
+		<li class="fl">
+			<a href="#">作品</a>
+		</li>
+		<li class="fr">
+			<a href="#">关于</a>
+		</li>
+	</ul>
+	<div class="navbar">
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+	</div>
+	<div class="logo">
+		<img src="images/logo.png">
+	</div>
+</div>
+<script type="text/javascript">
+$(function(){
+	$('.navbar').click(function(){
+		var _navHeight = $('.nav ul li').length * 43;
+		if(parseInt($('.nav ul').css('height')) == _navHeight){
+			$('.nav ul').stop().animate({height:0},500);
+		}else{
+			$('.nav ul').stop().animate({height:_navHeight},500);
+		}
+});
+
+});
+</script>
